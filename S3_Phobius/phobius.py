@@ -1,13 +1,16 @@
+#PHOBIUS DATABASE FOR SIGNAL P DETECTION
+#JUST A INITIAL TEST WITH SINGLE PEPTIDE
+#NEEDED TO BUILDUP IT FOR READING AND WRITING FROM CSV
 import urllib.parse
 import urllib.request
 
-# The URL where the form is being submitted (replace with your form's URL)
-url = "https://phobius.sbc.su.se/cgi-bin/predict.pl"  # Replace with your form action URL
+# The URL where the form is being submitted 
+url = "https://phobius.sbc.su.se/cgi-bin/predict.pl"
 
 # Define the data to be submitted
 data = {
    "protseq": ">sequence_name\nACCTGCAGATGGTGAACATCTCCCTGCGCGTCCTCACCCGCCCCAATGCTGCAGAGCTG",
-   "protfile": "",  # Leave blank if not uploading a file
+   "protfile": "",  
    "format": "nog"
 }
 
