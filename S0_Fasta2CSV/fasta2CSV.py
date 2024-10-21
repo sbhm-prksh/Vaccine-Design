@@ -1,3 +1,8 @@
+#Written by Shubham Prakash on 21/10/24
+#This script will convert fasta file to csv.
+#Fasta file name should be input.fa.
+#Output will be a csv fill with two columns, protein ID and protein sequence named output.csv
+
 import csv # so that we can open and write output in a csv
 def parse_fasta(file):
     """Parse a FASTA file and return a list of tuples (protein_id, sequence)."""
@@ -28,12 +33,10 @@ def fasta_to_csv(fasta_file, csv_file):
     protein_data = parse_fasta(fasta_file)
     with open(csv_file, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['Protein ID', 'Sequence'])  # Write header
-        writer.writerows(protein_data)  # Write data
+        writer.writerow(['Protein ID', 'Sequence'])  # Write name of the columnes
+        writer.writerows(protein_data)  # Write each rows.
 
-# Example usage:
-fasta_file = 'input.fa'  # My INPUT FASTA File
-csv_file = 'output.csv'  # My OUTPUT CSV File
-
+fasta_file = 'input.fa'  # INPUT FASTA File
+csv_file = 'output.csv'  # OUTPUT CSV File
 fasta_to_csv(fasta_file, csv_file)
 print(f"Converted {fasta_file} to {csv_file}")
