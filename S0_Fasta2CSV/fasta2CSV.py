@@ -1,6 +1,3 @@
-#Convert .fa file to .csv file
-#Input: input.fa
-#Output: output.csv
 import csv
 
 def parse_fasta(file):
@@ -15,7 +12,8 @@ def parse_fasta(file):
             if line.startswith('>'):
                 if protein_id:
                     protein_data.append((protein_id, ''.join(sequence)))
-                protein_id = line[1:].split()[0]  # Get the protein ID (remove '>')
+                # Split by space and get the first word after '>'
+                protein_id = line[1:].split()[0]  # Extract only the protein ID
                 sequence = []  # Reset sequence for the new protein
             else:
                 sequence.append(line)
@@ -36,8 +34,8 @@ def fasta_to_csv(fasta_file, csv_file):
         writer.writerows(protein_data)  # Write data
 
 # Example usage:
-fasta_file = 'input.fa'  # Replace with your input FASTA file
-csv_file = 'output.csv'  # Replace with your desired output CSV file
+fasta_file = 'input.fa'  # My INPUT FASTA File
+csv_file = 'output.csv'  # My OUTPUT CSV File
 
 fasta_to_csv(fasta_file, csv_file)
 print(f"Converted {fasta_file} to {csv_file}")
