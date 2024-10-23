@@ -1,6 +1,6 @@
 #Written By Shubham Prakash on 22/10/24
 #Purpose: To do the allergen test for the sequence using Algred2
-#Input: Output of ../S0_Fasta2CSV/Fasta2CsvPandas2.py i.e output.csv
+#Input: A CSV file with columns like- Protein ID, Sequence, Allergen Test etc.UPDATE inputFile variable accordingly
 #Output: Will modify the Allergen Test column in the input inself
 import requests
 from bs4 import BeautifulSoup
@@ -35,8 +35,9 @@ def get_allergenicity_result(sequence,id):
         print("Failed: Allergen Test for : ", id)
     return result
 start_time = time.time()
+inputFile="output.csv"
 # Read the CSV with the sequences
-df = pd.read_csv('smallOutput.csv')
+df = pd.read_csv(inputFile)
 
 # Iterate over each row in the DataFrame and fetch the allergenicity result
 for index, row in df.iterrows():
@@ -48,8 +49,8 @@ for index, row in df.iterrows():
     df.at[index, 'Allergen Test'] = result
 
 # Save the updated DataFrame back to the CSV
-df.to_csv('smallOutput.csv', index=False)
-print("#############################\nCOMPLETED:ALLERGEN TEST\n(Check smallOutput.csv)")
+df.to_csv(inputFile, index=False)
+print(f"#############################\nCOMPLETED:ALLERGEN TEST\n(Check {inputFile}.csv)")
 end_time = time.time()
 total_time = end_time - start_time
 print(f"Time Taken: {total_time:.2f} sec\n#############################")

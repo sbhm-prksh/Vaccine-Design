@@ -1,8 +1,7 @@
-#Same task as fasta2csvPandas.py but using dictionary
 #Written by Shubham Prakash on 22/10/24
-#This script will convert fasta file to csv.
-#Fasta file name should be input.fa.
-#Output will be a csv fill with two columns, protein ID and protein sequence named output.csv
+#Purpose: This script will convert fasta file to csv.
+#Input: A fasta file. Update fasta_file variable according to your input.
+#Output: A CSV file. Update csv_file variable to whaterver name you wants.
 import pandas as pd
 
 def parse_fasta(file):
@@ -52,7 +51,7 @@ def fasta_to_csv(fasta_file, csv_file):
     df = pd.DataFrame(data)
     df.to_csv(csv_file, index=False)  # Write DataFrame to CSV
 
-fasta_file = 'smallInput.fa'  # INPUT FASTA File
-csv_file = 'smallOutput.csv'  # OUTPUT CSV File
+fasta_file = 'input.fa'  # INPUT FASTA File
+csv_file = 'output.csv'  # OUTPUT CSV File
 fasta_to_csv(fasta_file, csv_file)
 print(f"Success: Converted {fasta_file}->{csv_file}")
