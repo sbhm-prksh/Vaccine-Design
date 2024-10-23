@@ -51,7 +51,7 @@ def fasta_to_csv(fasta_file, csv_file):
     df = pd.DataFrame(data)
     df.to_csv(csv_file, index=False)  # Write DataFrame to CSV
 
-fasta_file = 'input.fa'  # INPUT FASTA File
-csv_file = 'output.csv'  # OUTPUT CSV File
+fasta_file = 'smallInput.fa'  # INPUT FASTA File
+csv_file = 'smalloutput.csv'  # OUTPUT CSV File
 fasta_to_csv(fasta_file, csv_file)
 print(f"Success: Converted {fasta_file}->{csv_file}")
