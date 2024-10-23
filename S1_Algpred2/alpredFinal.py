@@ -35,7 +35,7 @@ def get_allergenicity_result(sequence,id):
         print("Failed: Allergen Test for : ", id)
     return result
 start_time = time.time()
-inputFile="output.csv"
+inputFile="smalloutput.csv"
 # Read the CSV with the sequences
 df = pd.read_csv(inputFile)
 
